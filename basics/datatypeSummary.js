@@ -65,3 +65,57 @@ const myFunction = function (){
 //        Arrays  =>  object
 //        Function  =>  function
 //        Object  =>  object
+
+//-----------------------------------------------------
+
+// stack and heap memory
+// stack : Primitive (ismein orginal value ki copy milti h)
+// Heap : Non-Primitive(here we ger reference of Original Value)
+
+let name = "thv.com"; //go in stack
+let othername = name;
+console.log(othername)
+
+othername = "pjm.com"
+console.log(othername) //pjm.com
+
+console.log(name) //thv.com
+//as in primitive type we get copy of the original value
+// so changes will not reflect in the original value
+
+let userOne = {
+    email: "user@gamil.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne;
+
+userTwo.email ="jk@gmail.com"
+
+console.log(userOne.email)//jk@gmail.com
+console.log(userTwo.email)//jk@gmail.com
+//as it is passed by reference
+
+// Stack Memory (Primitive / Reference Variables)
+// ┌────────────────────┐
+// │     userTwo        │
+// │     ───────────────┼─────────┐
+// │                    │         │
+// ├────────────────────┤         ▼
+// │     userOne        │      ┌────────────────────────────┐
+// │     ───────────────┼─────▶│  email: "user@google.com"  │
+// │                    │      │  upi: "user@yl"            │
+// ├────────────────────┤      └────────────────────────────┘
+// │         Name       │                    ▼
+// ├────────────────────┤                   HEAP
+// │       othername    │
+// ├────────────────────┤
+// │            Name    │
+// └────────────────────┘
+//       STACK
+
+// // Heap Memory (Object / Non-Primitive)
+//                      ┌────────────────────────────┐
+//                      │  email: "user@google.com"  │
+//                      │  upi: "user@yl"            │
+//                      └────────────────────────────┘
